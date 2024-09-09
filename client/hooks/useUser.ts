@@ -10,13 +10,21 @@ export function useUser(name: string) {
   }
 }
 
-export function useUserRepos() {
+export function useUserRepos(githubToken: string | undefined) {
+  // If the token is undefined, skip fetching and return a placeholder state
   const query = useQuery({
     queryKey: ['username'],
-    queryFn: () => fetchPinnedRepos(),
+    queryFn: () => {
+      if (!githubToken) {
+        throw new Error('GitHub token is missing')
+      }
+      return fetchPinnedRepos(githubToken)
+    },
+    enabled: !!githubToken, // Only run the query if the token exists
   })
+
   return {
     ...query,
-    // Extra queries go here e.g. addFruit: useAddFruit()
+    // Extra queries can be added here
   }
 }

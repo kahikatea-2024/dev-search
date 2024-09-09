@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-import type { User, UserRepos } from '../../models/user'
+import type { User } from '../../models/user'
 
 export function getUser(name: string): Promise<User> {
   return request.get(`https://api.github.com/users/${name}`).then((res) => {

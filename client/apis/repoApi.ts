@@ -1,12 +1,7 @@
 import { UserRepos } from '../../models/user'
-
 import superagent from 'superagent'
 
-// GitHub GraphQL API endpoint
 const GITHUB_GRAPHQL_API = 'https://api.github.com/graphql'
-
-// Replace with your GitHub token
-const GITHUB_TOKEN = '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'
 
 // GraphQL query for pinned repositories
 const query = `
@@ -46,12 +41,12 @@ interface PinnedRepoResponse {
   updatedAt: string
 }
 
-export async function fetchPinnedRepos() {
+export async function fetchPinnedRepos(githubToken: string) {
   try {
     const response = await superagent
       .post(GITHUB_GRAPHQL_API)
       .send({ query })
-      .set('Authorization', `Bearer ${GITHUB_TOKEN}`)
+      .set('Authorization', `Bearer ${githubToken}`)
       .set('Accept', 'application/json')
 
     const repos = response.body.data.user.pinnedItems
@@ -73,5 +68,3 @@ export async function fetchPinnedRepos() {
     console.error('Error fetching pinned repos:', error)
   }
 }
-
-fetchPinnedRepos()

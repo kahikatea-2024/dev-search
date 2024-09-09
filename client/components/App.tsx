@@ -3,7 +3,17 @@ import { useUser, useUserRepos } from '../hooks/useUser.ts'
 function App() {
   const username = 'bradacraig'
   const { data: userData } = useUser(username)
-  const { data: repoData } = useUserRepos()
+  const githubToken = import.meta.env.VITE_GITHUB_TOKEN
+
+  // Always call the hook unconditionally
+  const { data: repoData, error, isLoading } = useUserRepos(githubToken)
+
+  if (!githubToken) {
+    return <div>Error: GitHub token is missing</div>
+  }
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error fetching repos: {error.message}</div>
 
   return (
     <>
