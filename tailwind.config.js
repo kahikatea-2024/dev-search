@@ -2,7 +2,14 @@
 export default {
   content: ['./index.html', './client/**/*.tsx'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        btn: '#A998E2',
+        btnHover: '#6040c9',
+        bg: '#343444',
+        boxBg: '#372865',
+      },
+    },
   },
   plugins: [],
 }

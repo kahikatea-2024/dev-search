@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      <div className="app bg-bg">
         <Header />
         <h1 className="text-3xl font-bold underline">
           Fullstack Boilerplate - with Fruits!
