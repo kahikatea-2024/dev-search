@@ -1,9 +1,19 @@
-import { useUser } from '../hooks/useUser.ts'
+import { useUser, useUserRepos } from '../hooks/useUser.ts'
 
 function App() {
   const username = 'bradacraig'
-  const { data } = useUser(username)
+  const { data: userData } = useUser(username)
+  const githubToken = import.meta.env.VITE_GITHUB_TOKEN
 
+  // Always call the hook unconditionally
+  const { data: repoData, error, isLoading } = useUserRepos(githubToken)
+
+  if (!githubToken) {
+    return <div>Error: GitHub token is missing</div>
+  }
+
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error fetching repos: {error.message}</div>
 
   return (
     <>
@@ -11,8 +21,12 @@ function App() {
         <h1 className="text-3xl font-bold underline">
           Fullstack Boilerplate - with Fruits!
         </h1>
-        <p>{data?.name}</p>
-        <p>{data?.bio}</p>
+        <p>{userData?.name}</p>
+        <p>{userData?.bio}</p>
+        <ul>
+          {repoData &&
+            repoData.map((repo, i: number) => <li key={i}>{repo.name}</li>)}
+        </ul>
       </div>
     </>
   )
