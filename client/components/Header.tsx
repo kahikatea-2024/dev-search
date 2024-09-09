@@ -1,24 +1,25 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated, IfNotAuthenticated } from './Authentication'
+import SignInBtn from './UI/AuthBtn/AuthBtn'
 
 export function Header() {
-  const { logout, loginWithRedirect, user } = useAuth0()
+  const { logout, loginWithPopup, user } = useAuth0()
 
   const handleSignOut = () => {
     return logout()
   }
 
   const handleSignIn = () => {
-    return loginWithRedirect()
+    return loginWithPopup()
   }
 
   return (
     <>
       <IfAuthenticated>
-        <p>logout button goes here</p>
+        <SignInBtn text={'Sign Out'} onClick={handleSignOut}></SignInBtn>
       </IfAuthenticated>
       <IfNotAuthenticated>
-        <p>login button goes here</p>
+        <SignInBtn text={'Sign In'} onClick={handleSignIn}></SignInBtn>
       </IfNotAuthenticated>
     </>
   )
