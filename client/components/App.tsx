@@ -1,4 +1,5 @@
 import { useUser, useUserRepos } from '../hooks/useUser.ts'
+import { Header } from './Header.tsx'
 
 function App() {
   const username = 'bradacraig'
@@ -17,7 +18,8 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      <div className="app bg-bg">
+        <Header />
         <h1 className="text-3xl font-bold underline">
           Fullstack Boilerplate - with Fruits!
         </h1>
