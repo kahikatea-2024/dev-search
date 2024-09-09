@@ -1,19 +1,19 @@
 import { HtmlHTMLAttributes } from 'react'
-import { twMerge } from 'tailwind-merge'
 interface props {
   text: string
   onClick?: () => void
-  className: string
 }
 interface props extends HtmlHTMLAttributes<HTMLButtonElement> {}
 export default function AuthBtn(props: props) {
-  const { text, onClick, className } = props
-  const ButtonClasses =
-    'bg-btn hover:bg-btnHover hover:scale-105 w-fit rounded-lg p-2'
+  const { text, onClick } = props
+
   return (
     <>
       <div>
-        <button className={twMerge(ButtonClasses, className)} onClick={onClick}>
+        <button
+          onClick={onClick}
+          className="w-fit rounded-lg bg-btn p-2 hover:scale-105 hover:bg-btnHover"
+        >
           {text}
         </button>
       </div>
