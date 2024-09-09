@@ -10,6 +10,11 @@ const meta: Meta<typeof AuthBtn> = {
 type Story = StoryObj<typeof AuthBtn>
 
 export const MyPrimary: Story = {
-  render: () => <AuthBtn text={'Sign In'}></AuthBtn>,
+  render: () => (
+    <AuthBtn
+      text={'Sign In'}
+      className={'bg-btn hover:bg-btnHover hover:sca w-fit rounded-lg p-2'}
+    ></AuthBtn>
+  ),
 }
 export default meta
