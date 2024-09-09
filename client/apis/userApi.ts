@@ -1,11 +1,9 @@
-import  request  from "superagent";
+import request from 'superagent'
 
-import type { User } from "../../models/user";
+import type { User, UserRepos } from '../../models/user'
 
 export function getUser(name: string): Promise<User> {
-  return request.get(`https://api.github.com/users/${name}`).then((res)=>{
-    console.log(res.body);
+  return request.get(`https://api.github.com/users/${name}`).then((res) => {
     return res.body
-    
   })
 }

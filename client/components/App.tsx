@@ -1,9 +1,9 @@
-import { useUser } from '../hooks/useUser.ts'
+import { useUser, useUserRepos } from '../hooks/useUser.ts'
 
 function App() {
   const username = 'bradacraig'
-  const { data } = useUser(username)
-
+  const { data: userData } = useUser(username)
+  const { data: repoData } = useUserRepos()
 
   return (
     <>
@@ -11,8 +11,12 @@ function App() {
         <h1 className="text-3xl font-bold underline">
           Fullstack Boilerplate - with Fruits!
         </h1>
-        <p>{data?.name}</p>
-        <p>{data?.bio}</p>
+        <p>{userData?.name}</p>
+        <p>{userData?.bio}</p>
+        <ul>
+          {repoData &&
+            repoData.map((repo, i: number) => <li key={i}>{repo.name}</li>)}
+        </ul>
       </div>
     </>
   )
