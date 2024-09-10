@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
-      <div className="app bg-bg">
+      <div className="app ">
         <Header />
-        <h1 className="text-3xl font-bold underline">
+        <h1 className="text-3xl font-bold  underline">
           Fullstack Boilerplate - with Fruits!
         </h1>
         <p>{userData?.name}</p>

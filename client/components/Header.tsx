@@ -17,14 +17,19 @@ export function Header() {
 
   return (
     <>
-      <Cover />
-      <IfAuthenticated>
-        <SignInBtn text={'Sign Out'} onClick={handleSignOut}></SignInBtn>
-        <Avatar user={user?.picture} alt={user?.nickname}></Avatar>
-      </IfAuthenticated>
-      <IfNotAuthenticated>
-        <SignInBtn text={'Sign In'} onClick={handleSignIn}></SignInBtn>
-      </IfNotAuthenticated>
+      <div className="relative">
+        <Cover />
+        <div className="absolute right-8 top-8 z-10">
+          <IfAuthenticated>
+            <SignInBtn text={'Sign Out'} onClick={handleSignOut}></SignInBtn>
+            <Avatar user={user?.picture} alt={user?.nickname}></Avatar>
+          </IfAuthenticated>
+
+          <IfNotAuthenticated>
+            <SignInBtn text={'Sign In'} onClick={handleSignIn}></SignInBtn>
+          </IfNotAuthenticated>
+        </div>
+      </div>
     </>
   )
 }
