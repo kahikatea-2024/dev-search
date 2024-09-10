@@ -2,6 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { IfAuthenticated, IfNotAuthenticated } from './Authentication'
 import SignInBtn from './UI/AuthBtn/AuthBtn'
 import Avatar from './UI/Avatar/Avatar'
+import Cover from './UI/cover/Cover'
 
 export function Header() {
   const { logout, loginWithPopup, user } = useAuth0()
@@ -16,6 +17,7 @@ export function Header() {
 
   return (
     <>
+      <Cover />
       <IfAuthenticated>
         <SignInBtn text={'Sign Out'} onClick={handleSignOut}></SignInBtn>
         <Avatar user={user?.picture} alt={user?.nickname}></Avatar>
