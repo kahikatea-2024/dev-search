@@ -1,5 +1,5 @@
 #tailwind
-/public/output.css
+/client/styles/output.css
 
 # Node modules
 /node_modules
