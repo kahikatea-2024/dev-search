@@ -66,7 +66,7 @@ export function Header() {
             {currentUserData ? (
               <>
                 <div className="p-2">
-                  <p className="text-org font-mono text-2xl">
+                  <p className="font-mono text-2xl text-org">
                     {currentUserData.name}
                   </p>
                   <p className="text-lightBlue">{currentUserData.bio}</p>
@@ -76,12 +76,12 @@ export function Header() {
               <p>No user data found</p>
             )}
             <ul>
-              <p className="text-pink pl-4 text-xl font-semibold">
+              <p className="pl-4 text-xl font-semibold text-pink">
                 repositories:
               </p>
               {currentRepoData && currentRepoData.length > 0 ? (
                 currentRepoData.map((repo, i: number) => (
-                  <li className="text-lightBlue pl-2" key={i}>
+                  <li className="pl-2 text-lightBlue" key={i}>
                     {repo.name}
                   </li>
                 ))
@@ -92,14 +92,21 @@ export function Header() {
           </div>
         </div>
 
-        <div className="absolute right-8 top-8 z-10">
+        <div className="absolute right-8 top-8 z-10 flex items-start space-x-2">
           <IfAuthenticated>
-            <SignInBtn text={'Sign Out'} onClick={handleSignOut}></SignInBtn>
-            <Avatar user={user?.picture} alt={user?.nickname}></Avatar>
+            <div className="flex items-start space-x-2">
+              <Avatar user={user?.picture} alt={user?.nickname} />
+              <div className="flex flex-col items-start">
+                <SignInBtn text={'Sign Out'} onClick={handleSignOut} />
+                <div className="text-align: end pt-2 text-white">
+                  {user?.nickname}
+                </div>
+              </div>
+            </div>
           </IfAuthenticated>
 
           <IfNotAuthenticated>
-            <SignInBtn text={'Sign In'} onClick={handleSignIn}></SignInBtn>
+            <SignInBtn text={'Sign In'} onClick={handleSignIn} />
           </IfNotAuthenticated>
         </div>
       </div>
