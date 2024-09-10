@@ -65,11 +65,18 @@ export function Header() {
             <SearchBar setUsername={setUsername} />
             {currentUserData ? (
               <>
-                <div className="p-2">
-                  <p className="font-mono text-2xl text-org">
-                    {currentUserData.name}
-                  </p>
-                  <p className="text-lightBlue">{currentUserData.bio}</p>
+                <div className="flex items-center">
+                  <img
+                    className="w-14 rounded-full"
+                    src={currentUserData.avatar_url}
+                    alt="avatar"
+                  />
+                  <div className="p-2">
+                    <p className="font-mono text-2xl text-org">
+                      {currentUserData.name}
+                    </p>
+                    <p className="text-lightBlue">{currentUserData.bio}</p>
+                  </div>
                 </div>
               </>
             ) : (
