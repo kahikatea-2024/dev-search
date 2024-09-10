@@ -12,7 +12,7 @@ export default function AuthBtn(props: props) {
       <div>
         <button
           onClick={onClick}
-          className="w-fit rounded-lg bg-btn p-2 hover:scale-105 hover:bg-btnHover"
+          className="w-fit rounded-lg bg-btn p-2 shadow-lg hover:scale-105 hover:bg-btnHover"
         >
           {text}
         </button>
