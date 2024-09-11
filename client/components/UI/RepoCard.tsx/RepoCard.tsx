@@ -1,35 +1,32 @@
 import { UserRepos } from '../../../../models/user'
+import RepoStat from './RepoStat'
 
 interface props {
   data: UserRepos
 }
 export default function RepoCard({ data }: props) {
   console.log('data', data)
+  const { name, description, license, forks, stargazers_count, updated_at } =
+    data
 
   return (
     <>
-      <div className="grid grid-cols-4 grid-rows-3 gap-4">
-        <div className="col-span-3">
-          <h2 className="text-2xl text-btn">{data.name}</h2>
+      <div className="">
+        <div className="">
+          <h2 className="text-2xl text-btn">{name}</h2>
         </div>
-        <div className="col-span-4 row-start-2">
+        <div className="">
           <p className="max-h-12 overflow-hidden text-ellipsis">
-            {data.description}
+            {description}
           </p>
         </div>
 
-        <div className="row-start-3">
-          <p className="">{data.license}</p>
-        </div>
-        <div className="row-start-3">
-          <p className="">{data.forks}</p>
-        </div>
-        <div className="row-start-3">
-          <p className="">{data.stargazers_count}</p>
-        </div>
-        <div className="row-start-3">
-          <p className="overflow-hidden">{data.updated_at}</p>
-        </div>
+        {license && <RepoStat name="license" value={license} />}
+        {forks && <RepoStat name="forks" value={forks} />}
+        {stargazers_count && (
+          <RepoStat name="stargazers" value={stargazers_count} />
+        )}
+        {updated_at && <RepoStat name="updated " value={updated_at} />}
       </div>
     </>
   )
