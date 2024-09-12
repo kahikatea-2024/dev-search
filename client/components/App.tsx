@@ -64,7 +64,10 @@ function App() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
               {currentRepoData && currentRepoData.length > 0 ? (
                 currentRepoData.map((repo, i: number) => (
-                  <li key={i} className="rounded-lg bg-boxBg p-4 shadow-lg">
+                  <li
+                    key={i}
+                    className="overflow-hidden rounded-2xl border-2 border-btnHover bg-boxBg p-4 shadow-lg"
+                  >
                     <RepoCard data={repo} />
                   </li>
                 ))

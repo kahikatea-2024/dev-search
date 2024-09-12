@@ -13,9 +13,9 @@ export default function RepoCard({ data }: props) {
     <>
       <div className="">
         <div className="">
-          <h2 className="text-2xl text-btn">{name}</h2>
+          <h2 className="mb-4 text-2xl  text-btn">{name}</h2>
         </div>
-        <div className="">
+        <div className="text-white">
           <p className="max-h-12 overflow-hidden text-ellipsis">
             {description}
           </p>

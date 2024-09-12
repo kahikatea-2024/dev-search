@@ -9,7 +9,9 @@ export default function RepoStat({ value, name }: props) {
   if (value) {
     return (
       <>
-        {name} {value}
+        <div className="text-white">
+          {name} {value}
+        </div>
       </>
     )
   }
