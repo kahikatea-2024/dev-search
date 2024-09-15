@@ -21,12 +21,18 @@ export default function RepoCard({ data }: props) {
           </p>
         </div>
 
-        {license && <RepoStat name="license" value={license} />}
-        {forks && <RepoStat name="forks" value={forks} />}
-        {stargazers_count && (
-          <RepoStat name="stargazers" value={stargazers_count} />
+        {license !== 'No license' ? (
+          <RepoStat name="license" value={license} />
+        ) : (
+          ''
         )}
-        {updated_at && <RepoStat name="updated " value={updated_at} />}
+        {forks !== 0 ? <RepoStat name="forks" value={forks} /> : ''}
+        {stargazers_count !== 0 ? (
+          <RepoStat name="stargazers" value={stargazers_count} />
+        ) : (
+          ''
+        )}
+        {updated_at && <RepoStat name="updated" value={updated_at} />}
       </div>
     </>
   )
