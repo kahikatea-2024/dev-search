@@ -8,7 +8,12 @@ import { useUser, useUserRepos } from '../hooks/useUser'
 import { useEffect, useState } from 'react'
 import { UserRepos } from '../../models/user'
 
-export function Header() {
+interface HeaderProps {
+  username: string // Add username prop
+  setUsername: (username: string) => void
+}
+
+export function Header({ username, setUsername }: HeaderProps) {
   const { logout, loginWithPopup, user } = useAuth0()
 
   const handleSignOut = () => {
@@ -18,7 +23,6 @@ export function Header() {
   const handleSignIn = () => {
     return loginWithPopup()
   }
-  const [username, setUsername] = useState<string>('') // Start with an empty string
 
   // Destructure data, error, and isLoading from the result of useUser
   const {

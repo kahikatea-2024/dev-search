@@ -6,7 +6,7 @@ import { User, UserRepos } from '../../models/user.ts'
 import { AllRepos } from './AllRepos.tsx'
 
 function App() {
-  // const [username, setUsername] = useState<string>('') // Start with an empty string
+  const [username, setUsername] = useState<string>('') // Start with an empty string
 
   // // Destructure data, error, and isLoading from the result of useUser
   // const {
@@ -46,8 +46,8 @@ function App() {
   return (
     <>
       <div className="app ">
-        <Header />
-        <AllRepos />
+        <Header username={username} setUsername={setUsername} />
+        <AllRepos username={username} />
         {/* <SearchBar setUsername={setUsername} />
         {currentUserData ? (
           <>

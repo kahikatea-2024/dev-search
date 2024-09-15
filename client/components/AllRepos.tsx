@@ -4,7 +4,7 @@ interface AllReposProps {
 
 export function AllRepos({ username }: AllReposProps) {
   return (
-    <div className="container text-center">
+    <div className="container text-center mt-10">
       <a
         href={`https://github.com/${username}?tab=repositories`}
         target="_blank"
