@@ -1,14 +1,26 @@
-import { useAuth0, User } from '@auth0/auth0-react'
+import { useAuth0, User as AuthUser } from '@auth0/auth0-react'
 import { IfAuthenticated, IfNotAuthenticated } from './Authentication'
 import SignInBtn from './UI/AuthBtn/AuthBtn'
 import Avatar from './UI/Avatar/Avatar'
 import Cover from './UI/cover/Cover'
 import SearchBar from './UI/search bar/SearchBar'
-import { useUser, useUserRepos } from '../hooks/useUser'
-import { useEffect, useState } from 'react'
-import { UserRepos } from '../../models/user'
+// import { useUser, useUserRepos } from '../hooks/useUser'
+// import { useEffect, useState } from 'react'
+import { User, UserRepos } from '../../models/user'
 
-export function Header() {
+interface HeaderProps {
+  username: string
+  setUsername: React.Dispatch<React.SetStateAction<string>>
+  currentUserData: User | null
+  currentRepoData: UserRepos[] | null
+}
+
+export function Header({
+  username,
+  setUsername,
+  currentUserData,
+  currentRepoData,
+}: HeaderProps) {
   const { logout, loginWithPopup, user } = useAuth0()
 
   const handleSignOut = () => {
@@ -18,42 +30,6 @@ export function Header() {
   const handleSignIn = () => {
     return loginWithPopup()
   }
-  const [username, setUsername] = useState<string>('') // Start with an empty string
-
-  // Destructure data, error, and isLoading from the result of useUser
-  const {
-    data: userData,
-    error: userError,
-    isLoading: userLoading,
-  } = useUser(username)
-
-  const {
-    data: repoData,
-    error: repoError,
-    isLoading: repoLoading,
-  } = useUserRepos(username)
-
-  const [currentUserData, setCurrentUserData] = useState<User | null>(null)
-  const [currentRepoData, setCurrentRepoData] = useState<UserRepos[] | null>(
-    null,
-  )
-
-  // Reset data when username changes and refetch data
-  useEffect(() => {
-    setCurrentUserData(null)
-    setCurrentRepoData(null)
-
-    if (userData) {
-      setCurrentUserData(userData)
-    }
-    if (repoData) {
-      setCurrentRepoData(repoData)
-    }
-  }, [userData, repoData, username])
-
-  if (userLoading || repoLoading) return <div>Loading...</div>
-  if (userError || repoError)
-    return <div>Error: {userError?.message || repoError?.message}</div>
 
   return (
     <>
