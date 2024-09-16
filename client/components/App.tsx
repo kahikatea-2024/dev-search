@@ -43,6 +43,37 @@ function App() {
   if (userError || repoError)
     return <div>Error: {userError?.message || repoError?.message}</div>
 
+  const FakeData = [
+    {
+      name: 'CodeQuest',
+      description:
+        'CodeQuest is a simple interactive multi-choice quiz to help fledgling developers brush up on JavaScript concepts.',
+      license: 'MIT',
+      forks: 3,
+      stargazers_count: 5,
+      updated_at: '2024-09-10T04:44:28Z',
+    },
+
+    {
+      name: 'Todo-Full-Stack',
+      description: '',
+      license: 'MIT',
+      forks: 0,
+      stargazers_count: 3,
+      updated_at: '2024-07-09T00:12:07Z',
+    },
+
+    {
+      name: 'CodeQuest',
+      description:
+        'CodeQuest is a simple interactive multi-choice quiz to help fledgling developers brush up on JavaScript concepts.',
+      license: 'No license',
+      forks: 1,
+      stargazers_count: 45,
+      updated_at: '2024-09-10T04:44:28Z',
+    },
+  ]
+
   return (
     <>
       <div className="app ">
@@ -56,7 +87,7 @@ function App() {
           Fullstack Boilerplate - with Fruits!
         </h1>
         <AllRepos username={username} />
-        {/* <SearchBar setUsername={setUsername} />
+        {/* <SearchBar setUsername={setUsername} /> */}
         {currentUserData ? (
           <>
             <p>{currentUserData.name}</p>
@@ -68,8 +99,8 @@ function App() {
         <ul>
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
-              {currentRepoData && currentRepoData.length > 0 ? (
-                currentRepoData.map((repo, i: number) => (
+              {FakeData && FakeData.length > 0 ? (
+                FakeData.map((repo, i: number) => (
                   <li
                     key={i}
                     className="overflow-hidden rounded-2xl border-2 border-btnHover bg-boxBg p-4 shadow-lg"
@@ -82,7 +113,7 @@ function App() {
               )}
             </div>
           </div>
-        </ul> */}
+        </ul>
       </div>
     </>
   )
