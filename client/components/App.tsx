@@ -3,6 +3,7 @@ import { useUser, useUserRepos } from '../hooks/useUser.ts'
 import { Header } from './Header.tsx'
 import { User, UserRepos } from '../../models/user.ts'
 import { AllRepos } from './AllRepos.tsx'
+import { Footer } from './Footer/Footer.tsx'
 
 function App() {
   const [username, setUsername] = useState<string>('') // Start with an empty string
@@ -55,22 +56,8 @@ function App() {
           Fullstack Boilerplate - with Fruits!
         </h1>
         <AllRepos username={username} />
-        {/* <SearchBar setUsername={setUsername} />
-        {currentUserData ? (
-          <>
-            <p>{currentUserData.name}</p>
-            <p>{currentUserData.bio}</p>
-          </>
-        ) : (
-          <p>No user data found</p>
-        )}
-        <ul>
-          {currentRepoData && currentRepoData.length > 0 ? (
-            currentRepoData.map((repo, i: number) => <li key={i}>{repo.name}</li>)
-          ) : (
-            <p>No repositories found</p>
-          )}
-        </ul> */}
+
+        <Footer />
       </div>
     </>
   )

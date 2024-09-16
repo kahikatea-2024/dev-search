@@ -11,6 +11,8 @@ export default {
         org: '#f9b493',
         lightBlue: '#dafbf6',
         pink: '#f59ccf',
+        lightOrg: '#fed49a',
+        lightOrg2: '#f7b293',
       },
     },
   },
