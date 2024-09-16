@@ -8,7 +8,7 @@ export default function Avatar(props: props) {
 
   return (
     <>
-      <img src={user} alt={alt} />
+      <img className="w-10 rounded-full" src={user} alt={alt} />
     </>
   )
 }

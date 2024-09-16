@@ -45,12 +45,17 @@ function App() {
 
   return (
     <>
-      <div className="app bg-bg">
-        <Header />
-        <h1 className="text-3xl font-bold underline">
+      <div className="app ">
+        <Header
+          username={username}
+          setUsername={setUsername}
+          currentUserData={currentUserData}
+          currentRepoData={currentRepoData}
+        />
+        <h1 className="text-3xl font-bold  underline">
           Fullstack Boilerplate - with Fruits!
         </h1>
-        <SearchBar setUsername={setUsername} />
+        {/* <SearchBar setUsername={setUsername} />
         {currentUserData ? (
           <>
             <p>{currentUserData.name}</p>
@@ -76,31 +81,10 @@ function App() {
               )}
             </div>
           </div>
-        </ul>
+        </ul> */}
       </div>
     </>
   )
 }
 
 export default App
-
-{
-  ;<div className="container mx-auto px-4 py-6">
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      <div className="rounded-lg bg-white p-4 shadow-lg">
-        <h3 className="mb-2 text-lg font-semibold">Card Title 1</h3>
-        <p className="text-gray-700">
-          This is a description of the first card. It contains information about
-          the content.
-        </p>
-      </div>
-      <div className="rounded-lg bg-white p-4 shadow-lg">
-        <h3 className="mb-2 text-lg font-semibold">Card Title 2</h3>
-        <p className="text-gray-700">
-          This is a description of the second card. It contains information
-          about the content.
-        </p>
-      </div>
-    </div>
-  </div>
-}
