@@ -52,9 +52,14 @@ export default function RepoCard({ data }: props) {
     star: (
       <svg
         className="h-8 w-8 text-white"
-        fill="none"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
+        strokeWidth="2"
         stroke="currentColor"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
         <path
           strokeLinecap="round"
@@ -65,6 +70,17 @@ export default function RepoCard({ data }: props) {
       </svg>
     ),
   }
+
+  function getDaysDifference(date: string) {
+    //Difference between dates
+    const updatedAtDate = new Date(date)
+    const todaysDate = new Date()
+    const millisecondsDifference =
+      todaysDate.getTime() - updatedAtDate.getTime()
+    return Math.floor(millisecondsDifference / (1000 * 3600 * 24))
+  }
+
+  const daysDifference = getDaysDifference(updated_at)
 
   return (
     <>
@@ -92,7 +108,9 @@ export default function RepoCard({ data }: props) {
           ) : (
             ''
           )}
-          {updated_at && <RepoStat icon={'updated'} value={updated_at} />}
+          {updated_at && (
+            <RepoStat icon={''} value={`updated ${daysDifference} days ago`} />
+          )}
         </div>
       </div>
     </>
