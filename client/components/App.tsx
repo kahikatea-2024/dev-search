@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useUser, useUserRepos } from '../hooks/useUser.ts'
 import { Header } from './Header.tsx'
-import SearchBar from './UI/search bar/SearchBar.tsx'
 import { User, UserRepos } from '../../models/user.ts'
+import { AllRepos } from './AllRepos.tsx'
 import RepoCard from './UI/RepoCard.tsx/RepoCard.tsx'
 
 function App() {
@@ -55,6 +55,7 @@ function App() {
         <h1 className="text-3xl font-bold  underline">
           Fullstack Boilerplate - with Fruits!
         </h1>
+        <AllRepos username={username} />
         {/* <SearchBar setUsername={setUsername} />
         {currentUserData ? (
           <>

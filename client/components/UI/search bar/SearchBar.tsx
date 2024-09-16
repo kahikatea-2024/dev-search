@@ -1,7 +1,8 @@
-import { log } from 'console'
-import { InputHTMLAttributes, useState } from 'react'
 
-type InputAttributes = InputHTMLAttributes<HTMLInputElement>
+
+// type InputAttributes = InputHTMLAttributes<HTMLInputElement>
+
+import { useState } from "react"
 
 interface SearchBarProps {
   setUsername: (username: string) => void // Prop to update the username
