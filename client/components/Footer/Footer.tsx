@@ -6,7 +6,7 @@ export function Footer() {
     <>
       <footer className="bg-bg py-4">
         <div className="container mx-auto text-center">
-          <div className="via-pink-500 to-lightOrg2 flex bg-gradient-to-r from-purple-500 bg-clip-text text-transparent">
+          <div className="via-pink-500 flex bg-gradient-to-r from-purple-500 to-lightOrg2 bg-clip-text">
             <TextAnim
               name="Made with"
               size={1}

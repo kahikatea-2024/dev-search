@@ -14,6 +14,9 @@ export default {
         lightOrg: '#fed49a',
         lightOrg2: '#f7b293',
       },
+      backgroundImage: {
+        gradient: 'linear-gradient(to right, #5c2a91, #c4d7ff, #ffedda)',
+      },
     },
   },
   plugins: [],

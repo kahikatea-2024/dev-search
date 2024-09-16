@@ -4,6 +4,7 @@ import { Header } from './Header.tsx'
 import { User, UserRepos } from '../../models/user.ts'
 import { AllRepos } from './AllRepos.tsx'
 import { Footer } from './Footer/Footer.tsx'
+import { Footer2 } from './Footer/Footer2.tsx'
 
 function App() {
   const [username, setUsername] = useState<string>('') // Start with an empty string
@@ -52,12 +53,12 @@ function App() {
           currentUserData={currentUserData}
           currentRepoData={currentRepoData}
         />
-        <h1 className="text-3xl font-bold  underline">
+        <h1 className="text-3xl font-bold  underline ">
           Fullstack Boilerplate - with Fruits!
         </h1>
         <AllRepos username={username} />
-
         <Footer />
+        <Footer2 />
       </div>
     </>
   )
