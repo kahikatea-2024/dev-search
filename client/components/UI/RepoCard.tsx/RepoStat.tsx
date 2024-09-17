@@ -9,7 +9,7 @@ export default function RepoStat({ value, icon }: props) {
   if (value) {
     return (
       <>
-        <div className="flex space-x-4 p-4 text-white">
+        <div className="text-md flex items-center text-white">
           {icon}
           {value}
         </div>

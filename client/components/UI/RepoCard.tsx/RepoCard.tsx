@@ -84,17 +84,15 @@ export default function RepoCard({ data }: props) {
 
   return (
     <>
-      <div className="">
+      <div className="h-180 flex flex-col justify-between space-y-4">
         <div className="">
-          <h2 className="mb-4 text-2xl  text-btn">{name}</h2>
+          <h2 className="text-2xl  text-btn">{name}</h2>
         </div>
-        <div className="text-white">
-          <p className="max-h-12 overflow-hidden text-ellipsis">
-            {description}
-          </p>
+        <div className=" text-white">
+          <p className=" h-12 overflow-hidden text-ellipsis">{description}</p>
         </div>
 
-        <div className="flex space-x-4 p-4">
+        <div className="flex gap-x-4">
           {license !== 'No license' ? (
             <>
               <RepoStat icon={icons.license} value={license} />
