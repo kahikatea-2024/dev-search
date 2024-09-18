@@ -1,8 +1,8 @@
 import { useAuth0, User as AuthUser } from '@auth0/auth0-react'
 import { IfAuthenticated, IfNotAuthenticated } from './Authentication'
-import SignInBtn from './UI/AuthBtn/AuthBtn'
 import Avatar from './UI/Avatar/Avatar'
 import Cover from './UI/cover/Cover'
+import AuthBtn from './UI/AuthBtn/AuthBtn'
 import SearchBar from './UI/search bar/SearchBar'
 // import { useUser, useUserRepos } from '../hooks/useUser'
 // import { useEffect, useState } from 'react'
@@ -80,7 +80,7 @@ export function Header({
             <div className="flex items-start space-x-2">
               <Avatar user={user?.picture} alt={user?.nickname} />
               <div className="flex flex-col items-start">
-                <SignInBtn text={'Sign Out'} onClick={handleSignOut} />
+                <AuthBtn text={'Sign Out'} onClick={handleSignOut} />
                 <div className="text-align: end pt-2 text-white">
                   {user?.nickname}
                 </div>
@@ -89,7 +89,7 @@ export function Header({
           </IfAuthenticated>
 
           <IfNotAuthenticated>
-            <SignInBtn text={'Sign In'} onClick={handleSignIn} />
+            <AuthBtn text={'Sign In'} onClick={handleSignIn} />
           </IfNotAuthenticated>
         </div>
       </div>

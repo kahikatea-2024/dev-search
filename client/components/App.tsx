@@ -3,6 +3,7 @@ import { useUser, useUserRepos } from '../hooks/useUser.ts'
 import { Header } from './Header.tsx'
 import { User, UserRepos } from '../../models/user.ts'
 import { AllRepos } from './AllRepos.tsx'
+import RepoCard from './UI/RepoCard/RepoCard.tsx'
 
 function App() {
   const [username, setUsername] = useState<string>('') // Start with an empty string
@@ -55,7 +56,7 @@ function App() {
           Fullstack Boilerplate - with Fruits!
         </h1>
         <AllRepos username={username} />
-        {/* <SearchBar setUsername={setUsername} />
+        {/* <SearchBar setUsername={setUsername} /> */}
         {currentUserData ? (
           <>
             <p>{currentUserData.name}</p>
@@ -65,12 +66,23 @@ function App() {
           <p>No user data found</p>
         )}
         <ul>
-          {currentRepoData && currentRepoData.length > 0 ? (
-            currentRepoData.map((repo, i: number) => <li key={i}>{repo.name}</li>)
-          ) : (
-            <p>No repositories found</p>
-          )}
-        </ul> */}
+          <div className="container mx-auto px-4 py-6">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
+              {currentRepoData && currentRepoData.length > 0 ? (
+                currentRepoData.map((repo, i: number) => (
+                  <li
+                    key={i}
+                    className="overflow-hidden rounded-2xl bg-gradient-to-r  from-gray-900  to-boxBg p-4 shadow-lg"
+                  >
+                    <RepoCard data={repo} />
+                  </li>
+                ))
+              ) : (
+                <p>No repositories found</p>
+              )}
+            </div>
+          </div>
+        </ul>
       </div>
     </>
   )
