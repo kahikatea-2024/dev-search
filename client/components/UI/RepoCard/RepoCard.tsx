@@ -6,7 +6,6 @@ interface props {
   data: UserRepos
 }
 export default function RepoCard({ data }: props) {
-  console.log('data', data)
   const { name, description, license, forks, stargazers_count, updated_at } =
     data
 
@@ -99,7 +98,7 @@ export default function RepoCard({ data }: props) {
             ''
           )}
           {updated_at && (
-            <RepoStat icon={''} value={`updated ${daysDifference} days ago`} />
+            <RepoStat icon={''} value={`updated ${daysDifference}`} />
           )}
         </div>
       </div>
