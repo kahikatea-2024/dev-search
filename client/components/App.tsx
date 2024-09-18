@@ -3,7 +3,7 @@ import { useUser, useUserRepos } from '../hooks/useUser.ts'
 import { Header } from './Header.tsx'
 import { User, UserRepos } from '../../models/user.ts'
 import { AllRepos } from './AllRepos.tsx'
-import RepoCard from './UI/RepoCard.tsx/RepoCard.tsx'
+import RepoCard from './UI/RepoCard/RepoCard.tsx'
 
 function App() {
   const [username, setUsername] = useState<string>('') // Start with an empty string

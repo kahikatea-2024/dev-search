@@ -1,4 +1,5 @@
 import { UserRepos } from '../../../../models/user'
+import { getDaysDifference } from '../../../utilities/utilities'
 import RepoStat from './RepoStat'
 
 interface props {
@@ -69,15 +70,6 @@ export default function RepoCard({ data }: props) {
         />
       </svg>
     ),
-  }
-
-  function getDaysDifference(date: string) {
-    //Difference between dates
-    const updatedAtDate = new Date(date)
-    const todaysDate = new Date()
-    const millisecondsDifference =
-      todaysDate.getTime() - updatedAtDate.getTime()
-    return Math.floor(millisecondsDifference / (1000 * 3600 * 24))
   }
 
   const daysDifference = getDaysDifference(updated_at)
