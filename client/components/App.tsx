@@ -4,6 +4,7 @@ import { Header } from './Header.tsx'
 import { User, UserRepos } from '../../models/user.ts'
 import { AllRepos } from './AllRepos.tsx'
 import RepoCard from './UI/RepoCard/RepoCard.tsx'
+import UserInfo from './UI/User/UserInfo.tsx'
 
 function App() {
   const [username, setUsername] = useState<string>('') // Start with an empty string
@@ -61,6 +62,7 @@ function App() {
           <>
             <p>{currentUserData.name}</p>
             <p>{currentUserData.bio}</p>
+            <UserInfo user={currentUserData} />
           </>
         ) : (
           <p>No user data found</p>
